@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* --- TAILWIND V4 THEME CONFIGURATION --- */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+@theme inline {
+  /* Custom Colors Definition */
+
+  /* --- Balanced Premium Teal Palette --- */
+  
+  --color-darkBg: #020617;
+  --color-cardBg: rgba(15, 23, 42, 0.5);
+
+  /* Main Teal: Na zyada dull, na zyada bright. Ek dam professional vibe */
+  --color-teal: #14b8a6; 
+  
+  /* Bright Teal: Sirf hover effects ya text highlights ke liye */
+  --color-teal-light: #26e4d1; 
+  
+  /* Deep Teal: Background glows aur gradients ke liye */
+  --color-teal-dark: #0d9488; 
+  
+  /* Accent: Buttons ya rings ke liye */
+  --color-teal-accent: #0ea5e9; 
+
+  /* Glow Opacity: Ye check karein, is se glow "soft" lagega */
+  --color-teal-glow: rgba(20, 184, 166, 0.25);
+
+  /* Custom Animations & Radius */
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+
+  /* Mapping Shadcn Variables */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+}
+
+/* --- ROOT VARIABLES (Shadcn & Base Colors) --- */
+:root {
+  --background: #020617; /* Dark Navy Base */
+  --foreground: #f8fafc;
+  
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  
+  --primary: #0D9488; /* Teal as Primary */
+  --primary-foreground: #ffffff;
+  
+  --border: rgba(45, 212, 191, 0.1);
+  --radius: 0.625rem;
+}
+
+/* --- BASE STYLES --- */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    /* Subtle Background Gradient */
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.1) 0px, transparent 50%), 
+      radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.2) 0px, transparent 50%);
+  }
+}
+
+/* --- CUSTOM UTILITY CLASSES --- */
+
+/* Glassmorphism Effect */
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(45, 212, 191, 0.1);
+  border-radius: 1rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #0D9488;
+  border-radius: 10px;
+}
